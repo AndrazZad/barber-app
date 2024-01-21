@@ -1,0 +1,26 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <div class="main-page-content">
+        <h1 class="main-page-title"><b>BOOK YOUR BARBER</b></h1>
+        <p class="next"><b>Great Hair Doesn’t Happen By Chance. It Happens By Appointment!</b></p>
+        <p class="next"><b>So, Don't Wait And Book Your Appointment Now!</b></p>
+        <div class="barber-image-content">
+            <img src="assets/image.jpg" alt="Barber Image" class="barber-image">
+        </div>
+        
+        
+        <ng-container *ngIf="isScreenLarge; else smallScreenContent">
+            <app-form></app-form>
+        </ng-container>
+
+        <!-- Content for small screens -->
+        <ng-template #smallScreenContent>
+            <app-mobile-form></app-mobile-form>
+        </ng-template>
+        
+    </div>
+    
+    
+
+

@@ -1,0 +1,26 @@
+@import '@fontsource/squada-one';
+
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.naslov {
+    font-family: "Squada One";
+    font-size: 37px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+}
+
+.centered-content {
+    text-align: center;
+  }
+
+  .barber-image {
+    padding: 10px;
+    border: 1px solid black;
+    border-width: 3px;
+}

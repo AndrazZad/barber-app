@@ -1,0 +1,112 @@
+@import '@fontsource/squada-one';
+@import "@fontsource/roboto-slab";
+
+
+.main-page-content {
+  text-align: center;
+  padding: 20px; 
+}
+
+.barber-image-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+}
+
+
+.main-page-title {
+  font-family: 'Squada One', sans-serif;
+  font-size: 58px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.next {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.barber-image {
+    max-width: 110%;
+    padding: 15px;
+    border: 1px solid black;
+    border-width: 5px;
+}
+  /*
+  app-form {
+    
+    top: 620px;
+    left: 550px;
+    
+    z-index: 1;
+    
+    position: relative;
+  } */
+
+
+  @media (min-width: 1300px) and (max-width: 2000px) {
+    .main-page-content {
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      position: relative;
+    }
+  
+    /* Move the image a bit left */
+    .barber-image-content {
+      max-width: 1050px;
+      margin: 0 auto; /* Center the content horizontally */
+  
+      /* Add margin to move the image a bit to the right */
+      margin-left: 177px; /* Replace "px" with the desired value */
+      /* Move the image up */
+    margin-top: -146px; /* Adjust the value to move it upward */
+      
+    }
+  
+    /* Move the app-form up and right */
+    app-form {
+      top: 550px;
+      margin-left: 390px;
+      z-index: 1;
+      position: absolute;
+      transform: scale(1.35);
+    }
+  }
+
+  @media (min-width: 2000px) and (max-width: 2600px) {
+    .main-page-content {
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      position: relative;
+    }
+  
+    /* Move the image a bit left */
+    .barber-image-content {
+      max-width: 1230px;
+      margin: 0 auto; /* Center the content horizontally */
+  
+      /* Add margin to move the image a bit to the right */
+      margin-left: 170px; /* Replace "px" with the desired value */
+      /* Move the image up */
+    margin-top: -165px; /* Adjust the value to move it upward */
+      
+    }
+  
+    /* Move the app-form up and right */
+    app-form {
+      top: 675px;
+      margin-left: 310px;
+      z-index: 1;
+      position: absolute;
+      transform: scale(1.52);
+    }
+  }
+  
+  

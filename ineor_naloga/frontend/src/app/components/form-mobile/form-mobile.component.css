@@ -1,0 +1,151 @@
+@import '@fontsource/squada-one';
+@import "@fontsource/roboto-slab";
+
+
+
+.form-container {
+  background-color: #1C2843;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+}
+
+/* naslov */
+
+.naslov {
+  font-family: "Squada One";
+  font-size: 37px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  color: white;
+}
+
+/* vrste */
+
+.form-row {
+  width: 100%;
+}
+
+.form-row input {
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+.first-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 35px;
+  justify-content: center;
+}
+
+.middle-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.last-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  justify-content: center;
+}
+
+.form-field {
+  flex: 1;
+}
+
+/* select opcije */
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #999; 
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  
+}
+
+/* gumb */
+
+button {
+  background-color: #FE9565; 
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px; 
+  padding: 15px 0; 
+  font-size: 18px; 
+  font-family: "Roboto Slab"; 
+  font-weight: 400;
+  letter-spacing: 2px;
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+/* placeholders */
+
+#firstName::placeholder,
+#lastName::placeholder,
+#email::placeholder,
+#number::placeholder,
+#barber::placeholder,
+#service::placeholder,
+#date::placeholder,
+#time::placeholder,
+#price::placeholder {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #999; 
+  
+}
+
+/* errors */
+
+.error-message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: red;
+  font-size: 14px; 
+}
+
+
+.error-row {
+  display: flex;
+  gap: 10px;
+  
+  margin-bottom: 10px;
+  color: red;
+  justify-content: center;
+}
+
+.form-row-left {
+  justify-content: flex-start;
+  margin-right: auto;
+}
+
+.form-row-right {
+  justify-content: flex-end;
+  margin-left: auto;
+}

@@ -1,0 +1,103 @@
+<div class="form-container">
+  <p class="naslov">BOOK YOUR APPOINTMENT</p>
+  <form (ngSubmit)="submitForm()" #myForm="ngForm">
+    
+    <!-- first and last name -->
+    
+    <div class="first-row">
+      <input type="text" id="firstName" name="firstName" placeholder="First Name" [formControl]="firstName">
+      <input type="text" id="lastName" name="lastName" placeholder="Last Name" [formControl]="lastName">
+    </div>
+
+    <div class="error-row">
+      <div class="form-row-left" *ngIf="formSubmitted && firstName?.errors?.['required'] ">
+        Please enter your first name
+      </div>
+
+      <div class="form-row-right" *ngIf="formSubmitted && lastName?.errors?.['required'] ">
+        Please enter your last name
+      </div>
+    </div>
+
+
+
+    <!-- email and tel number -->
+
+    <div class="form-row">
+      <input type="text" id="email" name="email" placeholder="Email" [formControl]="email">
+      <input type="tel" id="number" name="number" placeholder="Contact number" [formControl]="number">
+    </div>
+
+    <div class="error-row">
+      <div class="form-row-left" *ngIf="formSubmitted && (email?.errors?.['required'] || email?.errors?.['email'])">
+        Please enter a valid email
+      </div>
+
+      <div class="form-row-right" *ngIf="formSubmitted && (number?.errors?.['required'] || number?.errors?.['slovenePhoneNumber'])">
+        Please enter phone number
+      </div>
+    </div>
+
+    <!-- barber and service selection -->
+
+    <div class="form-row">
+
+      <select id="barber" name="barber" [(ngModel)]="selectedBarber" required (ngModelChange)="getPickedBarberId()">
+        <option disabled selected value="">Select Barber</option>
+        <option *ngFor="let barber of barbers" [value]="barber.id">
+          {{ barber.firstName }} {{ barber.lastName }}
+        </option>
+      </select>
+
+
+      <select class="barber-pick" id="service" name="service" [(ngModel)]="selectedService" required (ngModelChange)="updateajIzbireTerminovGledeNaStoritev()">
+        <option disabled selected value="">Select Service</option>
+        <option *ngFor="let service of services" [value]="service.id"> {{ service.name }}</option>
+      </select>
+    </div>
+
+    <div class="error-row">
+      
+      <div class="form-row-left" *ngIf="formSubmitted && selectedBarber == ''">
+        Please select a barber
+      </div>
+
+      <div class="form-row-right" *ngIf="formSubmitted && selectedService == ''">
+        Please select a service
+      </div>
+    </div>
+
+    <!-- date and time selection -->
+
+    <div class="middle-row">
+      <input type="date" id="date" name="date" [(ngModel)]="selectedDate" required (ngModelChange)="updateajIzbireTerminovGledeNaStoritev()">
+      <select id="time" name="time" required [(ngModel)]="selectedTime">
+        <option [ngValue]="undefined" disabled selected>Select Time</option>
+        <option *ngFor="let termin of trenutniProstiIntervali" [ngValue]="termin.zacetek">
+          {{ termin.zacetek | date: 'HH:mm' }} - {{ termin.konec | date: 'HH:mm' }}
+        </option>
+      </select>
+      
+    </div>
+
+    <div class="error-row">
+      
+      <div class="form-row-left" *ngIf="formSubmitted && selectedDate === undefined">
+        Please pick a date
+      </div>
+
+      <div class="form-row-right" *ngIf="formSubmitted && selectedTime === undefined">
+        Please pick a time.
+      </div>
+    </div>
+
+    <!-- Price display -->
+
+    <div class="last-row">
+      <input type="text" id="price" name="price" placeholder="Select any service" required readonly [value]="calculatePrice()">
+    </div>
+
+    <button type="submit" >BOOK APPOINTMENT</button>
+  </form>
+</div>
+
