@@ -17,7 +17,7 @@ export class SuccessComponent implements OnInit {
   ngOnInit(): void {
       this.gifService.searchGifs().subscribe((data) => {
         this.gif = data;
-        console.log(this.gif);
+        //console.log(this.gif);
       })
   }
 

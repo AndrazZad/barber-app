@@ -82,7 +82,7 @@ export class FormComponent implements OnInit {
       
     });
     
-    console.log(this.selectedTime);
+    
     //tabela dovoljenih ur za rezervacijo
     // samo med delovnimi urami
     // brez overlapanja z prejsnimi appointmentsi
@@ -113,12 +113,12 @@ export class FormComponent implements OnInit {
   
 
   getPickedBarberId(): void {
-    console.log("getPickedBarbeIdCall");
+    
     // Find the selected barber in the array based on the name
     const selectedBarber = this.barbers.find(barber => barber.id === this.selectedBarber);
     
     this.trenutniBarber = selectedBarber as Barber;
-    //console.log(this.trenutniBarber);
+ 
 
     this.updateajIzbireTerminovGledeNaStoritev();
     
@@ -126,7 +126,7 @@ export class FormComponent implements OnInit {
   }
 
   mozneUre(): void {
-    console.log("mozneUre");
+    
 
     // izberi datum
 
@@ -134,11 +134,11 @@ export class FormComponent implements OnInit {
 
     if (this.selectedDate) {
       // Log the selected date
-      //console.log('Selected Date:', this.selectedDate);
+      
 
       // Log the day of the week
       const dayOfWeek = this.datePipe.transform(this.selectedDate, 'EEEE');
-      //console.log('Day of the Week:', dayOfWeek);
+      
 
       // Assign a numeric value based on the day of the week
       let numericDayOfWeek: number;
@@ -169,7 +169,7 @@ export class FormComponent implements OnInit {
       if(this.trenutniBarber != undefined) {
       
         const workHoursForSelectedDay = this.trenutniBarber.workHours.filter(hour => hour.day === numericDayOfWeek);
-        //console.log('Work Hours for Selected Day:', workHoursForSelectedDay);
+     
       
       
         workHoursForSelectedDay.forEach(workHour => {
@@ -207,7 +207,7 @@ export class FormComponent implements OnInit {
     
 
           if (prvi.getDate() === drugi.getDate() && prvi.getMonth() === drugi.getMonth() && prvi.getFullYear() === drugi.getFullYear()) {
-            //console.log(appointment);
+            
             const appointmentStartDate = new Date(appointment.startDate);
             let appointmentEndDate: Date;
         
@@ -223,7 +223,7 @@ export class FormComponent implements OnInit {
 
             //replaced this.prostiTermini with vmesna
             vmesna.forEach(interval => {
-              //console.log(interval);
+              
               const intervalStartDate = interval.zacetek;
               const intervalEndDate = interval.konec;
 
@@ -254,14 +254,14 @@ export class FormComponent implements OnInit {
        
 
     } else {
-      console.log('No date selected.');
+      //console.log('No date selected.');
     }
 
   }
 
   updateajIzbireTerminovGledeNaStoritev() : void {
-    console.log("update storitev Call");
-    //console.log(this.selectedService);
+    //console.log("update storitev Call");
+    
 
     
     if(this.selectedService != "") {
@@ -275,7 +275,7 @@ export class FormComponent implements OnInit {
     
         // Iterate through the original prostiTermini
         this.prostiTermini.forEach(interval => {
-          //console.log(interval);
+          
           const intervalStart = new Date(interval.zacetek);
           let intervalEnd = new Date(intervalStart.getTime() + durationMinutes * 60 * 1000);
     
@@ -309,17 +309,17 @@ export class FormComponent implements OnInit {
             // Update intervalEnd for the next iteration
             intervalEnd = maxNewIntervalEnd;
           }
-          //console.log(interval);
-          console.log(this.prostiTermini);
+          
+        
         });
     
     
         // Assign the new array to trenutniProstiIntervali to avoid unintended side effects
         this.trenutniProstiIntervali = [...availableTimeIntervals];
     
-        //console.log(this.trenutniProstiIntervali);
+       
       } else {
-        console.log("no selected service");
+        //console.log("no selected service");
       }
 
 
@@ -344,10 +344,9 @@ export class FormComponent implements OnInit {
 
     if (this.myForm.valid && this.selectedTime != undefined) {
       // Handle form submission
-      console.log(this.selectedTime);
       
       const unixTimestamp = new Date(this.selectedTime).getTime() / 1000;
-      console.log(unixTimestamp);
+      
       
       const packageData: Package = {
         id: (this.appointments.length + 1).toString(),
@@ -371,7 +370,7 @@ export class FormComponent implements OnInit {
   
       
   
-      console.log('Form submitted!');
+      
     } else {
       // Form is invalid, display errors or take necessary action
       this.formSubmitted = true;
